@@ -1,0 +1,89 @@
+.card-counter{
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 100px;
+    border-radius: 5px;
+	   
+    transition: .3s linear all;
+  }
+
+  .card-counter:hover{
+    box-shadow: 4px 4px 20px #DADADA;
+    transition: .3s linear all;
+  }
+
+  .card-counter.primary{
+    background-color: #007bff;
+    color: #FFF;
+  }
+
+  .card-counter.danger{
+    background-color: #ef5350;
+    color: #FFF;
+  }  
+
+  .card-counter.success{
+    background-color: #b1bd0f;
+    color: #FFF;
+  }  
+
+  .card-counter.info{
+    background-color: #26c6da;
+    color: #FFF;
+  }  
+
+
+  .card-counter.infouser{
+    background-color: #ec6b16;
+    color: #FFF;
+  }  
+  .card-counter.primary-2{
+    background-color: #51a10f;
+    color: #FFF;
+  }
+
+  .card-counter.danger-3{
+    background-color: #f39cec;
+    color: #FFF;
+  }  
+
+  .card-counter.success-4{
+    background-color: #854eeb;
+    color: #FFF;
+  }  
+
+  .card-counter.info-5{
+    background-color: #094047;
+    color: #FFF;
+  }  
+ 
+ 
+
+  .card-counter i{
+    font-size: 5em;
+    opacity: 0.2;
+    color: #FFF;
+  }
+
+  .card-counter .count-numbers{
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    font-size: 32px;
+    display: block;
+    color: #FFF;
+  }
+
+  .card-counter .count-name{
+    position: absolute;
+    right: 35px;
+    top: 65px;
+    font-style: italic;
+    text-transform: capitalize;
+  
+    display: block;
+    font-size: 18px;
+    color: #FFF;
+  }
