@@ -7,18 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-    <title>Document</title>
+    <title>attendance report</title>
     <style>
         table,
         td,
         th {
             border: 0.001px solid rgb(12, 10, 10);
             text-align: center;
+       font-size: 18px;
+            
         }
-        th{
-            font-size:12px;
-        }
-
+ /* table{
+     border-collapse:collapse;
+ }       */
 
 .imgdiv{
     width:auto;
@@ -55,11 +56,9 @@
 
   float: right;
 }
-.design{
-    height:20px;
-}
+
 section{
-    height: 830px;
+    height: 500px;
 }
 
 
@@ -124,32 +123,32 @@ section{
                 <tr>
                     <td>{{ $key + 1 }}</td>
 
-                    <td id="resize">{{ $employee->first_name . ' ' . $employee->last_name }}</td>
+                    <td>{{ $employee->first_name . ' ' . $employee->last_name }}</td>
 
                     @foreach ($atns as $atd)
 
                         @if ($atd->status == 'present' && $atd->employee_id === $employee->id)
 
-                            <td><i class="fa fa-check text-success"></i>P</td>
+                            <td style="color: rgb(0, 102, 255)"><i class="fa fa-check text-success"></i>P</td>
 
                         @elseif($atd->status =='absent' && $atd->employee_id === $employee->id)
-                            <td><i class="fa fa-times text-danger"></i>A</td>
+                            <td style="color: red"><i class="fa fa-times text-danger"></i>A</td>
 
                         @elseif($atd->status =='leave' && $atd->employee_id === $employee->id)
-                            <td><i class="fa fa-sign-out-alt text-warning"></i>L</td>
+                            <td style="color: rgb(7, 53, 56)"><i class="fa fa-sign-out-alt text-warning"></i>L</td>
 
                         @elseif($atd->status =='offday' && $atd->employee_id === $employee->id)
-                            <td><i class="fa fa-power-off text-info"></i>O</td>
+                            <td style="color: rgba(155, 12, 136, 0.74)"><i class="fa fa-power-off text-info"></i>O</td>
 
                         @endif
 
                     @endforeach
 
-                    <td>{{ $employee->presents_count }}</td>
+                    <td style="color: rgb(0, 102, 255)">{{ $employee->presents_count }}</td>
 
-                    <td>{{ $employee->absents_count }}</td>
-                    <td>{{ $employee->leave_count }}</td>
-                    <td>{{ $employee->offday_count }}</td>
+                    <td  style="color: red">{{ $employee->absents_count }}</td>
+                    <td style="color: rgb(7, 53, 56)">{{ $employee->leave_count }}</td>
+                    <td style="color: rgba(155, 12, 136, 0.74)">{{ $employee->offday_count }}</td>
                 </tr>
             @endforeach
         </tbody>

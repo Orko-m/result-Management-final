@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>attendance report</title>
     <style>
         table,
         td,
         th {
             border: 0.001px solid rgb(12, 10, 10);
             text-align: center;
+       font-size: 18px;
+          
         }
 
 
@@ -51,11 +53,9 @@
 
   float: right;
 }
-.design{
-    height:20px;
-}
+
 section{
-    height: 830px;
+    height: 500px;
 }
 
 
@@ -136,23 +136,23 @@ section{
                               @php 
                                 $present++;
                               @endphp  
-                             <td><i class="fa fa-check text-success"></i><strong>P</strong></td>
+                             <td style="color: rgb(0, 102, 255)"><i class="fa fa-check text-success"></i><strong>P</strong></td>
                             @elseif($atd->status =='absent' && $atd->employee_id === $employee->id)
 
                             @php 
                                $absent ++
                              @endphp  
-                            <td><i class="fa fa-times text-danger"></i><strong>A</strong> </td>
+                            <td style="color: red"><i class="fa fa-times text-danger"></i><strong>A</strong> </td>
 
                             @elseif($atd->status =='leave' && $atd->employee_id === $employee->id)
                                 @php 
                                 $leave++
                                 @endphp  
-                               <td><i class="fa fa-sign-out-alt text-warning"></i><strong>L</strong> </td>
+                               <td style="color: rgb(7, 53, 56)"><i class="fa fa-sign-out-alt text-warning"></i><strong>L</strong> </td>
 
 
                             @elseif($atd->status =='offday' && $atd->employee_id === $employee->id)
-                            <td><i class="fa fa-power-off text-info"></i><strong>O</strong> </td>
+                            <td style="color: rgba(155, 12, 136, 0.74)"><i class="fa fa-power-off text-info"></i><strong>O</strong> </td>
 
                             @php 
                               $offday++
@@ -162,10 +162,10 @@ section{
 
                 @endforeach
 
-                    <td>{{ $present }}</td>
-                    <td>{{ $absent  }}</td>
-                    <td>{{  $leave }}</td>
-                    <td>{{ $offday }}</td>
+                    <td style="color: rgb(0, 102, 255)">{{ $present }}</td>
+                    <td style="color: red">{{ $absent  }}</td>
+                    <td style="color: rgb(7, 53, 56)">{{  $leave }}</td>
+                    <td style="color: rgba(155, 12, 136, 0.74)">{{ $offday }}</td>
                </tr>
                @endforeach
         </tbody>
