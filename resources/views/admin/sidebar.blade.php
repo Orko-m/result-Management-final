@@ -45,7 +45,7 @@
 
             <li class=" nav-item{{ request()->is('user') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('user') }}"><i class="fas fa-user" aria-hidden="true">
 
-                    </i><span class="menu-title text-truncate">User List</span></a></li>
+                    </i><span class="menu-title text-truncate">Manage Manager</span></a></li>
 
         </ul>
 

@@ -81,7 +81,7 @@
         @php
         $hrmanager = auth()->user()->where('role','3')->count();
         @endphp
-        <span class="count-numbers">{{  $hrmanager }}</span>
+        <span class="count-numbers">{{$hrmanager }}</span>
         <span class="count-name">Total Hr Manager</span>
       </div>
     </div>
@@ -93,10 +93,8 @@
         <div class="col-md-3">
             <div class="card-counter info-5">
               <i class="fa fa-code-fork"></i>
-              @php
-              $employee = auth()->user()->where('role','0')->count();
-              @endphp
-              <span class="count-numbers">{{ $employee}}</span>
+             
+              <span class="count-numbers">{{$totalEmployee}}</span>
               <span class="count-name">Total Employee</span>
             </div>
           </div>

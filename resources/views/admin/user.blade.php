@@ -8,7 +8,7 @@
         </div>
         <div class="col-sm-3 ">
             <div class="btn-group float-sm-right">
-                <a href="{{route('addUserForm')}}" type="button" class="btn btn-primary waves-effect waves-light"><i class="fa fa-user-plus mr-1"></i> Add New User</a>
+                <a href="{{route('addUserForm')}}" type="button" class="btn btn-primary waves-effect waves-light"><i class="fa fa-user-plus mr-1"></i>Add New Manager</a>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
                                                           @elseif($user->role=='3')
                                                            <td>Hr Manager</td>
                                                                 @else
-                                                                    <td>User</td>
+                                                                    <td>Employee</td>
                                                                 @endif
 
 

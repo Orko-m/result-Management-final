@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-3 ">
             <div class="btn-group float-sm-right">
-                <a href="{{route('user')}}" type="button" class="btn btn-primary waves-effect waves-light"><i class="fa fa-list mr-1"></i> Manage User</a>
+                <a href="{{route('user')}}" type="button" class="btn btn-primary waves-effect waves-light"><i class="fa fa-list mr-1"></i> Manage Manager</a>
 
             </div>
         </div>
@@ -42,7 +42,7 @@
                                 <option value="1">ADMIN</option>
                                 <option value="2">Manager</option>
                                 <option value="3">Hr Manager</option>
-                                <option value="0">User</option>
+                                <option value="0">Employee</option>
 
 
                             </select>

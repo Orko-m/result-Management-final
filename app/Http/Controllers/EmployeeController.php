@@ -23,7 +23,7 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         
-        $request->validate([
+       $forValidate = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required',
@@ -64,6 +64,7 @@ class EmployeeController extends Controller
         'employee_img' =>$last_img,
         'created_at' => Carbon::now()
     ]);
+     
 
 
     return Redirect()->back()->with('success', 'Employee Data Inserted Successfuly');
