@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use App\Models\Employee;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Hash;
 use Carbon\Carbon;
@@ -18,7 +19,9 @@ class EmployeeController extends Controller
     }
     public function create()
     {
-        return view('employee.add-employee');
+        $userEmail=User::select('email')->where('role',0)->orderBy('id', 'DESC')->get();
+
+        return view('employee.add-employee',compact('userEmail'));
     }
     public function store(Request $request)
     {
@@ -26,9 +29,8 @@ class EmployeeController extends Controller
        $forValidate = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:employees',
             'dob' => 'required',
-            'password' => 'required',
             'employee_image' => 'required|mimes:jpg,jpeg,png',
             'present_address'=>'required',
             'parmanent_address'=>'required',
@@ -38,9 +40,8 @@ class EmployeeController extends Controller
         'first_name.required' => 'Please Input First Name',
         'last_name.required' => 'Please Input Last Name',
         'email.required' => 'Please Input Your Valide Email',
+        'email.unique' => 'This email is already used',
         'dob.required' => 'Please Input Your Date of Birth',
-        'password.required' => 'Please Input Your Password',
-        'password_confirmation.required' => 'Retype Your Password',
         'present_address.required' => 'Employee present address is required',
         'parmanent_address.required' => 'Employee parmanent address is required',
 
@@ -60,7 +61,6 @@ class EmployeeController extends Controller
         'last_name' =>$request->last_name,
         'email' =>$request->email,
         'dob' =>$request->dob,
-        'password' => Hash::make($request->password),
         'present_address' =>$request->present_address,
         'parmanent_address' =>$request->parmanent_address,
         'employee_img' =>$last_img,
@@ -95,7 +95,6 @@ class EmployeeController extends Controller
             'last_name.required' => 'Please Input Last Name',
             'email.required' => 'Please Input Your Valide Email',
             'dob.required' => 'Please Input Your Date of Birth',
-            'password.required' => 'Inter Your Password',
             'present_address.required' => 'Employee present address is required',
             'parmanent_address.required' => 'Employee parmanent address is required',
 
@@ -121,7 +120,6 @@ class EmployeeController extends Controller
         'last_name' =>$request->last_name,
         'email' =>$request->email,
         'dob' =>$request->dob,
-        'password' => Hash::make($request->password),
         'present_address' =>$request->present_address,
         'parmanent_address' =>$request->parmanent_address,
         'employee_img' =>$last_img,
@@ -141,10 +139,8 @@ class EmployeeController extends Controller
 //    view just employee attendance view
     public function view_employee_attendance()
     {
-        $attendances = Attendance::join('employees', 'attendances.employee_id', '=', 'employees.id')
-            ->get(['attendances.*', 'employees.first_name','employees.last_name']);
-//
+        
 
-        return view('employee.view-employee-attendance',compact('attendances'));
+        return view('employee.view-employee-attendance');
     }
 }

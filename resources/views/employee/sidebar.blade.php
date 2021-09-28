@@ -39,7 +39,12 @@
 
         </ul>
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('view_employee_attendance') }}"><i data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Dashboards">View Attendance</span></a></li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('view-employee-attendance') }}"><i data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Dashboards">View Attendance</span></a></li>
+
+
+        </ul>
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('findSingleEmployee') }}"><i data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Pdf Report</span></a></li>
 
 
         </ul>

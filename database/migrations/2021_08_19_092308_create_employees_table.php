@@ -19,7 +19,6 @@ class CreateEmployeesTable extends Migration
             $table->string('email');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('password');
             $table->string('dob');
             $table->string('present_address');
             $table->string('parmanent_address');

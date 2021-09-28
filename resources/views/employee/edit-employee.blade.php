@@ -46,6 +46,7 @@
                             <img src="{{asset($edit_employee->employee_img)}}" alt="" style="height:150px; width: 150px;">
                         </div>
                         <div class="form-group">
+                            <div style="display: flex; flex-direction:column;">
                             <label for="pr_address">Permanent Address </label>
 
                             <textarea id="parmanent_address" name="parmanent_address" rows="4" cols="85">
@@ -53,14 +54,17 @@
                                {{ $edit_employee->parmanent_address }}
                              </textarea>
                         </div>
-
+                    </div>
                         <div class="form-group">
+                            <div style="display: flex; flex-direction:column;">
+
                             <label for="pr_address">Present Address </label>
 
                             <textarea id="present_address" name="present_address" rows="4"  cols="85">
                                 {{ $edit_employee->present_address }}
                             </textarea>
                         </div>
+                    </div>
 
 
                         <div class="form-group">

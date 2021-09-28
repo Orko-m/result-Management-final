@@ -1,5 +1,5 @@
 @extends('admin.app')
-@section('title','User')
+@section('title','Manage Manager')
 
 @section('content')
     <div class="row pt-2 pb-2">

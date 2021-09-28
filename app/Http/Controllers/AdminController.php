@@ -46,8 +46,9 @@ class AdminController extends Controller
             'name' => 'required|min:3|max:20',
             'role' => 'required',
             'email' => 'required',
-            'password' => 'required',
-            'password_confirmation' => 'required',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required_with:password|same:password|min:6',
+    
         ]);
 
         $add_user = new User();
@@ -104,9 +105,9 @@ class AdminController extends Controller
 ////     $user_id=auth()->user()->id;
 //     $user_data=User::select('name','email')->where($user_id,'id')->get();
 //     dd($user_data);
-        if (Auth::user())
+        if (auth()->user())
         {
-            $user = User::find(Auth::user()->id);
+            $user = User::find(auth()->user()->id);
             if ($user)
             {
                 return view('user-profile.profile',compact('user'));
@@ -121,8 +122,8 @@ class AdminController extends Controller
 //       dd($user);
 //        $user->name = $request->name;
 //        $user->email = $request->email;
-//        $user->update();
-        $user = User::find(Auth::user()->id);
+//        $user->update();Auth::user()->id
+        $user = User::find(auth()->user()->id);
         if($user){
             $user->name = $request['name'];
             $user->email = $request['email'];

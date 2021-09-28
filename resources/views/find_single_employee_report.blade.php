@@ -16,7 +16,7 @@
     
                 
                     <div class="card text-center">
-                        <form action="{{ route('view_employee_report') }}" method="get">
+                        <form action="{{ route('singleEmployee') }}" method="get">
                             @csrf
                         <div class="card-header border-0 text-center">
                             <div class="col-12 col-sm-8 text-center">
@@ -29,7 +29,7 @@
                        
                         <br>
                             <div class="form-group text-center mb-0 pb-2">
-                                <button type="submit" class="btn btn-primary px-5"><i class="icon-check"></i>Find attendance report</button>
+                                <button type="submit" class="btn btn-primary px-5"><i class="icon-check"></i>Download attendance report</button>
                             </div>
                         </form>
                     </div>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use mysql_xdevapi\Exception;
+use Illuminate\Support\Facades\Auth;
 
 
 class AttendanceController extends Controller
@@ -119,6 +120,23 @@ public function viewpreviousreport(Request $request){
 
     }
    
+    public function view_employee_report(Request $request){
+      
+
+        $authEmail=Auth::user()->email;
+        $userEmail=Employee::where('email',$authEmail)->first();
+        $authEmplyeeId=$userEmail->id;
+        
+        $date2nd=date('Y-m',strtotime($request->date));
+        
+        $atns=Attendance::select('employee_id','date','dateYM','status')->where('employee_id',$authEmplyeeId)->where('dateYM',$date2nd)->get();
+          
+        $employees= Employee::select('id','first_name','last_name')->where('id',$authEmplyeeId)->get();
+       
+    
+        return view('employee.view-employee-attendance-show',compact('employees','atns','date2nd'));
+    
+        }
 
 }
 
