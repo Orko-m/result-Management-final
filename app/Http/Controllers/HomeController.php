@@ -27,14 +27,16 @@ class HomeController extends Controller
             return view('admin.dashboard',compact('date','present','absent','leave','offday','totalEmployee'));
         }else
             {
+                $authEmail=Auth::user()->email;
+                
                 $date = date('Y-m');
-                $userEmail=User::select('email')->where()->first();
-
-
-                $present=Attendance::where('status','=','present')->where('dateYM',$date)->count();
-                $absent =Attendance::where('status','=','absent')->where('dateYM',$date)->count();
-                $leave =Attendance::where('status','=','leave')->where('dateYM',$date)->count();
-                $offday =Attendance::where('status','=','off day')->where('dateYM',$date)->count();
+                $userEmail=Employee::where('email',$authEmail)->first();
+                $authEmplyeeId=$userEmail->id;
+        
+                $present=Attendance::where('status','=','present')->where('dateYM',$date)->where('employee_id', $authEmplyeeId)->count();
+                $absent =Attendance::where('status','=','absent')->where('dateYM',$date)->where('employee_id', $authEmplyeeId)->count();
+                $leave =Attendance::where('status','=','leave')->where('dateYM',$date)->where('employee_id', $authEmplyeeId)->count();
+                $offday =Attendance::where('status','=','off day')->where('dateYM',$date)->where('employee_id', $authEmplyeeId)->count();
                return view('employee.dashboard',compact('date','present','absent','leave','offday'));
             }
     }

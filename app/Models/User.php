@@ -29,6 +29,11 @@ class User extends Authenticatable
         'name','role', 'email', 'password',
     ];
 
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class,'User_id','id');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

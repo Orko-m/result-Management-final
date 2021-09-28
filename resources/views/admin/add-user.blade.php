@@ -27,12 +27,18 @@
                         <div class="form-group">
                             <label for="firstName">Name</label>
                             <input type="text" class="form-control"name="name" id="name"value="{{old('name')}}" placeholder="Enter Your  Name">
+                            @error('name')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control"name="email" id="email"value="{{old('email')}}" placeholder="Enter Your Email Address">
+                            <input type="email" class="form-control"name="email" id="email"value="{{old('email')}}" placeholder="Enter Your Email Address">
+                            @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
@@ -46,6 +52,9 @@
 
 
                             </select>
+                            @error('role')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror  
                         </div>
 
 
@@ -53,10 +62,16 @@
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+                            @error('password')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror  
                         </div>
                         <div class="form-group">
                             <label for="confirm_password">Confirm Password</label>
                             <input type="password" class="form-control"name="password_confirmation" id="confirm_password" placeholder="Confirm Password">
+                            @error('password_confirmation')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror  
                         </div>
 
 

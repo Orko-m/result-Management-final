@@ -27,16 +27,16 @@ class AdminController extends Controller
     }
 //Add user
 //    public function storeUser(Request $request ){
-//
+
 //        $request->validate([
 //            'name' =>'required|min:3|max:20',
 //            'email' =>'required|min:3|max:20|unique:User',
 //            'password' =>'required|min:8|max:20|,
-//
-//
-//
+
+
+
 //        ]);
-//
+
 //        return redirect()->back();
 //    }
     public function StoreUser(Request $request)
@@ -47,6 +47,7 @@ class AdminController extends Controller
             'role' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'password_confirmation' => 'required',
         ]);
 
         $add_user = new User();

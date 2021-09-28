@@ -32,13 +32,15 @@ class EmployeeController extends Controller
             'employee_image' => 'required|mimes:jpg,jpeg,png',
             'present_address'=>'required',
             'parmanent_address'=>'required',
+            'password_confirmation'=>'required',
         ],
     [
         'first_name.required' => 'Please Input First Name',
         'last_name.required' => 'Please Input Last Name',
         'email.required' => 'Please Input Your Valide Email',
         'dob.required' => 'Please Input Your Date of Birth',
-        'password.required' => 'Inter Your Password',
+        'password.required' => 'Please Input Your Password',
+        'password_confirmation.required' => 'Retype Your Password',
         'present_address.required' => 'Employee present address is required',
         'parmanent_address.required' => 'Employee parmanent address is required',
 

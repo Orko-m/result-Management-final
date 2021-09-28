@@ -94,12 +94,12 @@ Route::get('/delete-employee/{id}',[EmployeeController::class,'destroy'])->name(
 #################### Just Employee Route ######################
 
 
-Route::get('/view_employee_attendance',[EmployeeController::class,'view_employee_attendance'])->name('view_employee_attendance');
+Route::get('/view_employee_attendance',[EmployeeController::class,'view_employee_attendance'])->name('view_employee_attendance')->middleware('IsActive','Manager','HrManager');
 
 // for pdf download current month
-Route::get('/pdf-download', [PdfController::class, 'pdfGenerator'])->name('pdf');
+Route::get('/pdf-download', [PdfController::class, 'pdfGenerator'])->name('pdf')->middleware('IsActive','HrManager');
 // // for pdf download  monthly
 
-Route::post('/pdf-store', [PdfController::class, 'downloadPdf'])->name('download');
+Route::post('/pdf-store', [PdfController::class, 'downloadPdf'])->name('download')->middleware('IsActive','HrManager');
 // show pdf page
-Route::get('/pdf-show', [PdfController::class, 'forReport'])->name('forshow');
+Route::get('/pdf-show', [PdfController::class, 'forReport'])->name('forshow')->middleware('IsActive','HrManager');
