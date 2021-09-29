@@ -13,7 +13,7 @@ class Employee extends Model
         'email',
         'first_name',
         'last_name',
-        'password',
+        // 'password',
         'dob',
         'present_address',
         'parmanent_address',

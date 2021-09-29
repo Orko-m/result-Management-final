@@ -79,7 +79,14 @@ Route::get('/employee',[EmployeeController::class,'index'])->name('employee')->m
 Route::get('/add-employee',[EmployeeController::class,'create'])->name('add-employee')->middleware('IsActive','HrManager','employee');
 
 // Employee Add Store
-Route::post('/save-employee',[EmployeeController::class,'store'])->name('store-employee')->middleware('IsActive','HrManager','employee');
+Route::post('/save-employee',[EmployeeController::class,'store'])->name('store-employee')->middleware('IsActive');
+
+
+
+
+
+
+
 
 // Employee Edit
 Route::get('/edit-employee/{id}',[EmployeeController::class,'edit'])->name('edit-employee')->middleware('IsActive','HrManager','employee');

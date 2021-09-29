@@ -25,6 +25,8 @@ class EmployeeController extends Controller
     }
     public function store(Request $request)
     {
+       
+        
         
        $forValidate = $request->validate([
             'first_name' => 'required',
@@ -33,9 +35,9 @@ class EmployeeController extends Controller
             'dob' => 'required',
             'employee_image' => 'required|mimes:jpg,jpeg,png',
             'present_address'=>'required',
-            'parmanent_address'=>'required',
-            'password_confirmation'=>'required',
+         
         ],
+        
     [
         'first_name.required' => 'Please Input First Name',
         'last_name.required' => 'Please Input Last Name',
@@ -46,7 +48,10 @@ class EmployeeController extends Controller
         'parmanent_address.required' => 'Employee parmanent address is required',
 
     ]);
-    
+   
+
+ 
+
     $employee_img = $request->file('employee_image');
     $name_gen = hexdec(uniqid());
     $img_ext = strtolower($employee_img->getClientOriginalExtension());
@@ -54,8 +59,8 @@ class EmployeeController extends Controller
     $up_location = 'image/';
     $last_img = $up_location.$img_name;
     $employee_img->move($up_location,$img_name);
-    
-
+   
+     
     Employee::insert([
         'first_name' =>$request->first_name,
         'last_name' =>$request->last_name,
@@ -67,10 +72,16 @@ class EmployeeController extends Controller
         'created_at' => Carbon::now()
     ]);
      
+// for toster notification
+$notification = array(
+    'message' => 'Employee Data Inserted Successfuly',
+    'alert-type' =>'info'
+);
+// end toster notification code
 
+    return Redirect()->route('employee')->with($notification);
 
-    return Redirect()->back()->with('success', 'Employee Data Inserted Successfuly');
-
+    
     }
 
     public function edit($id)
@@ -82,23 +93,23 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         
-        $request->validate([
+           
+        $forValidate = $request->validate([
             'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required',
+            'last_name' => 'required', 
             'dob' => 'required',
             'present_address'=>'required',
-            'parmanent_address'=>'required',
+         
         ],
-        [
-            'first_name.required' => 'Please Input First Name',
-            'last_name.required' => 'Please Input Last Name',
-            'email.required' => 'Please Input Your Valide Email',
-            'dob.required' => 'Please Input Your Date of Birth',
-            'present_address.required' => 'Employee present address is required',
-            'parmanent_address.required' => 'Employee parmanent address is required',
+        
+    [
+        'first_name.required' => 'Please Input First Name',
+        'last_name.required' => 'Please Input Last Name',
+        'dob.required' => 'Please Input Your Date of Birth',
+        'present_address.required' => 'Employee present address is required',
+        'parmanent_address.required' => 'Employee parmanent address is required',
 
-        ]);
+    ]);
 
     if($request->employee_image){
     $old_img = $request->old_image;
@@ -118,7 +129,7 @@ class EmployeeController extends Controller
     Employee::find($id)->update([
         'first_name' =>$request->first_name,
         'last_name' =>$request->last_name,
-        'email' =>$request->email,
+       
         'dob' =>$request->dob,
         'present_address' =>$request->present_address,
         'parmanent_address' =>$request->parmanent_address,
@@ -126,15 +137,30 @@ class EmployeeController extends Controller
         'created_at' => Carbon::now()
     ]);
 
+// for toster notification
+$notification = array(
+    'message' => 'Employee Data Updated Successfuly',
+    'alert-type' =>'success'
+);
+// end toster notification code
 
-    return Redirect()->back()->with('success', 'Employee Data Update Successfuly');
+    return Redirect()->back()->with($notification);
+
+    
 
     }
 
     public function destroy($id)
     {
         $delete_employee = Employee::destroy($id);
-        return Redirect::back();
+    // for toster notification
+    $notification = array(
+        'message' => 'Employee Deleted Successfuly',
+        'alert-type' =>'warning'
+    );
+    // end toster notification code
+            return Redirect::back()->with($notification);
+        
     }
 //    view just employee attendance view
     public function view_employee_attendance()

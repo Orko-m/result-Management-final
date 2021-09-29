@@ -18,11 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <hr>
-                    @if (session('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+                   
                     <form action="{{ route('store-employee') }}" method="post" id="myform" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">

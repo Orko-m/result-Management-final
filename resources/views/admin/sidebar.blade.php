@@ -34,47 +34,58 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"{{ request()->is('redirects') ? 'active' : '' }}><a class="d-flex align-items-center" href="{{ route('redirects') }}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboard</span></a></li>
+            <li class="nav-item {{ Request::routeIs('redirects') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('redirects') }}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboard</span></a></li>
 
 
         </ul>
 
         @if(auth()->user()->role==1)
-
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-
-            <li class=" nav-item{{ request()->is('user') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('user') }}"><i class="fas fa-user" aria-hidden="true">
-
-                    </i><span class="menu-title text-truncate">Manage Manager</span></a></li>
-
+            <li class=" nav-item"><a class="d-flex align-items-center" href=""><i class="fa fa-user-plus"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Manage Manager</span></a>
+                <ul class="menu-content">
+                    <li class="{{ Request::routeIs('addUserForm') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{route('addUserForm')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Analytics">Add New Manager</span></a>
+                    </li>
+                    <li class="{{ Request::routeIs('user') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('user') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">View Manager list</span></a>
+                    </li>
+                  
+                </ul>
+            </li>
         </ul>
 
         @endif
         @if(auth()->user()->role==1 || auth()->user()->role==2)
 
+
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-
-            <li class=" nav-item{{ request()->is('employee') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{route('employee')}}">
-                    <i class="fas fa-user" aria-hidden="true"></i><span class="menu-title text-truncate">Manage Employee</span></a></li>
-
+            <li class=" nav-item"><a class="d-flex align-items-center" href="index.html"><i class="fas fa-vector-square"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Manage Employee</span></a>
+                <ul class="menu-content">
+                    <li class="{{ Request::routeIs('add-employee') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{route('add-employee')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Analytics">Add New Employee</span></a>
+                    </li>
+                    <li class="{{ Request::routeIs('employee') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('employee') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">View Employee list</span></a>
+                    </li>
+                  
+                </ul>
+            </li>
         </ul>
+
+
         @endif
         @if(!auth()->user()->role==0)
 
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class=" nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Attendance</span><span class="badge badge-light-warning badge-pill ml-auto mr-1">5</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="{{route('attendance_index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Analytics">Add Attendance</span></a>
+                    <li class="{{ Request::routeIs('attendance_index') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{route('attendance_index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Analytics">Add Attendance</span></a>
                     </li>
-                    <li class=""><a class="d-flex align-items-center" href="{{ route('view') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">View Attendance</span></a>
+                    <li class="{{ Request::routeIs('view') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('view') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">View Attendance</span></a>
                     </li>
                     {{-- for view all attendance --}}
-                    <li class=""><a class="d-flex align-items-center" href="{{ route('viewall') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">current report</span></a>
+                    <li class="{{ Request::routeIs('viewall') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('viewall') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">current report</span></a>
                     </li>
-                    <li class=""><a class="d-flex align-items-center" href="{{ route('previous') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">previous report</span></a>
+                    <li class="{{ Request::routeIs('previous') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('previous') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">previous report</span></a>
                     </li>
                     {{-- monthly pdf report --}}
-                    <li class=""><a class="d-flex align-items-center" href="{{ route('forshow') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">pdf report</span></a>
+                    <li class="{{ Request::routeIs('forshow') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('forshow') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">pdf report</span></a>
                     </li>
                 </ul>
             </li>
