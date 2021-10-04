@@ -16,14 +16,15 @@
 
     
         <div class="row">
-            <div class="col-12 col-lg-12">
+            <div class="col-4 col-lg-4">
     
                 
                     <div class="card text-center">
                         <form action="{{ route('viewpreviousreport') }}" method="post">
                             @csrf
                         <div class="card-header border-0 text-center">
-                            <div class="col-12 col-sm-8 text-center">
+                            <h3>Count attendance report</h3>
+                            <div class="text-center">
                                
                                 <input type="date" required name="date" class="form-control text-center">
         

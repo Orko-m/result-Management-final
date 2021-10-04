@@ -24,6 +24,8 @@ class Employee extends Model
         return $this->hasMany(Attendance::class,'employee_id','id');
     }
 
+
+   
     public function presents()
     {
         $date=date('Y-m');
@@ -45,4 +47,6 @@ class Employee extends Model
         $date=date('Y-m');
         return $this->hasMany(Attendance::class,'employee_id','id')->where('status','offday')->where('dateYM',$date);
     }
+
+   
 }

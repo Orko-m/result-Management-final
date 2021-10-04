@@ -3,7 +3,7 @@
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto"><a class="navbar-brand" href="{{ route('redirects') }}"><span class="brand-logo">
-                            <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24">
+                             {{-- <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24">
                                 <defs>
                                     <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
                                         <stop stop-color="#000000" offset="0%"></stop>
@@ -25,7 +25,12 @@
                                         </g>
                                     </g>
                                 </g>
-                            </svg></span>
+                            </svg> --}}
+               
+                        </span> 
+                        <div style="float: left">
+                            <img src="{{ asset('app-assets/images/ico/favicon.png')}}" class="brand-logo" alt="" width="30" height="30">
+                         </div>
                     <h2 class="brand-text">Excel It Ai AMS</h2>
                 </a></li>
             <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
@@ -80,12 +85,12 @@
                     <li class="{{ Request::routeIs('view') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('view') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">View Attendance</span></a>
                     </li>
                     {{-- for view all attendance --}}
-                    <li class="{{ Request::routeIs('viewall') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('viewall') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">current report</span></a>
+                    <li class="{{ Request::routeIs('viewall') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('viewall') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">Monthly report</span></a>
                     </li>
                     <li class="{{ Request::routeIs('previous') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('previous') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">previous report</span></a>
                     </li>
                     {{-- monthly pdf report --}}
-                    <li class="{{ Request::routeIs('forshow') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('forshow') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">pdf report</span></a>
+                    <li class="{{ Request::routeIs('forshow') ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('forshow') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">view pdf report</span></a>
                     </li>
                 </ul>
             </li>

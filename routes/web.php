@@ -107,6 +107,10 @@ Route::get('/pdf-download', [PdfController::class, 'pdfGenerator'])->name('pdf')
 // // for pdf download  monthly
 
 Route::post('/pdf-store', [PdfController::class, 'downloadPdf'])->name('download')->middleware('IsActive','employee');
+Route::post('/pdf-store-daily', [PdfController::class, 'downloadPdf_daily'])->name('download-daily')->middleware('IsActive','employee');
+Route::post('/pdf-store-yearly', [PdfController::class, 'download_yearly'])->name('download-yearly')->middleware('IsActive','employee');
+
+
 // show pdf page
 Route::get('/pdf-show', [PdfController::class, 'forReport'])->name('forshow')->middleware('IsActive','employee');
 

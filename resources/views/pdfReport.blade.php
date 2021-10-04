@@ -16,14 +16,43 @@
 
     
         <div class="row">
-            <div class="col-12 col-lg-12">
+
+
+            <div class="col-sm-4 ">
+        
+                <div class="card text-center">
+                    <form action="{{ route('download-daily') }}" method="post">
+                        @csrf
+                    <div class="card-header border-0 text-center">
+                        <h3>For daily  report</h3>
+                        <div class="text-center">
+                           
+                            <input type="date" required name="date" class="form-control text-center">
+    
+                        </div>
+                        </div>
+    
+                   
+                    <br>
+                        <div class="form-group text-center mb-0 pb-2">
+                            <button type="submit" class="btn btn-primary px-5"><i class="icon-check"></i>download daily attendacne report</button>
+                        </div>
+                    </form>
+                </div>
+           
+        </div>
+
+
+
+            <div class=" col-sm-4">
     
                 
                     <div class="card text-center">
                         <form action="{{ route('download') }}" method="post">
                             @csrf
                         <div class="card-header border-0 text-center">
-                            <div class="col-12 col-sm-8 text-center">
+                            <h3>For monthly  report</h3>
+                            <div class="text-center">
                                
                                 <input type="date" required name="date" class="form-control text-center">
         
@@ -39,6 +68,30 @@
                     </div>
                
             </div>
+            <div class=" col-sm-4">
+    
+                
+                <div class="card text-center">
+                    <form action="{{ route('download-yearly') }}" method="post">
+                        @csrf
+                    <div class="card-header border-0 text-center">
+                        <h3>For yearly  report</h3>
+                        <div class="text-center">
+                           
+                            <input type="date" required name="date" class="form-control text-center">
+    
+                        </div>
+                        </div>
+    
+                   
+                    <br>
+                        <div class="form-group text-center mb-0 pb-2">
+                            <button type="submit" class="btn btn-primary px-5"><i class="icon-check"></i>download yearly attendacne report</button>
+                        </div>
+                    </form>
+                </div>
+           
+        </div>
     
         </div><!--End Row-->
  

@@ -64,7 +64,7 @@
     <meta name="author" content="PIXINVENT">
     <title>Attendance Management System</title>
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
@@ -108,11 +108,12 @@
                     <div class="card mb-0">
                         <div class="card-body">
                             <a href="javascript:void(0);" class="brand-logo">
-                                <svg
+                                {{-- <svg
                                     viewbox="0 0 139 95"
                                     version="1.1"
                                     xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                                   
                                     height="28"
                                 >
                                     <defs>
@@ -161,11 +162,20 @@
                                             </g>
                                         </g>
                                     </g>
-                                </svg>
-                                <h5 class="brand-text text-primary ml-1">Attendance Management System</h5>
+                                </svg> --}}
+                                <div>
+                                    <div style="float: left">
+                       <img src="{{ asset('app-assets/images/ico/favicon.png')}}" class="brand-logo" alt="" width="40" height="40">
+                    </div>
+                    <div style="float: right">
+                    <h4 class="brand-text text-primary ml-1" style="margin-top:20px">Welcome to Excel It Ai</h4>
+                </div>
+                </div>
                             </a>
+                       
+                            <h4 class="card-title mb-1"><center><strong>
+                            Attendance Management System</strong></center></h4>
 
-                            <h4 class="card-title mb-1"><center>Welcome to Excel It Ai</center></h4>
 
                                 <form  class="auth-login-form mt-2" method="POST" action="{{ route('login') }}">
                                     @csrf
@@ -177,7 +187,7 @@
                                         id="email"
                                         required
                                         name="email"
-                                        placeholder="john@example.com"
+                                        placeholder="email@example.com"
                                         aria-describedby="login-email"
                                         tabindex="1"
                                         autofocus

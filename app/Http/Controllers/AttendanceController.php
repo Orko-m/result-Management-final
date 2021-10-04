@@ -39,6 +39,7 @@ class AttendanceController extends Controller
                 
     
                 ]);
+                
                 session()->flash('success','Attendance Success');
 
             } catch (Exception $e ) {

@@ -18,14 +18,15 @@ class IsActive
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->status == 1)
-        {
-            return $next($request);
-        }else
-
-            {
-                Auth::logout();
-                return  Redirect::back();
-            }
+        if(Auth::check()){
+            // dd($request);
+            if (Auth::user()->status == 1){
+                return $next($request);
+            }else{
+                    Auth::logout();
+                    return  Redirect::back();
+                }
+        }
+        return redirect('/');
     }
 }

@@ -98,7 +98,7 @@
 
                 </div>
                 <br>
-                    <div class="form-group text-center mb-0">
+                    <div class="form-group text-center mb-2">
                         <button type="submit" class="btn btn-primary px-5"><i class="icon-check"></i>Save Attendance</button>
                     </div>
                 </form>
